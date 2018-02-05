@@ -1,0 +1,37 @@
+   <!-- Navigation -->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
+      <div class="container">
+        <a class="navbar-brand" href="<% root_path %>">Rails 5 Login</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarResponsive">
+          <ul class="navbar-nav ml-auto">
+            <li class="nav-item active">
+              <%= link_to "Home", root_path, 
+              class: "nav-link" %>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#">Login</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#">Register</a>
+            </li>           
+            <li class="nav-item dropdown">
+              <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">username <b class="caret"></b></a>
+              <ul class="dropdown-menu">
+                 <li class="nav-item active">
+                   <%= link_to "Profile", show_profile_path, 
+                   class: "dropdown-link" %>
+                 </li>
+                 <li class="nav-item">
+                   <a class="dropdown-link" href="#">Log out</a>
+                 </li>
+             </ul>
+           </li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+
+

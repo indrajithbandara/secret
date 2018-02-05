@@ -35,6 +35,7 @@ gem 'jbuilder', '~> 2.5'
 gem 'bootstrap'
 gem 'bootswatch'
 gem 'jquery-rails'
+gem 'bcrypt', '3.1.11'
 
 
 group :development, :test do
