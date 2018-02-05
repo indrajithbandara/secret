@@ -17,7 +17,8 @@
               class: "nav-link" %>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="#">Register</a>
+              <%= link_to "Register", register_path, 
+                class: "nav-link" %>           
             </li> 
             <% else %>        
             <% user = current_user %>  
