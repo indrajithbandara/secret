@@ -1,12 +1,19 @@
-<h1>User Profile</h1>
-
+<% user = @current_user %>
+<h1>User Profile Page</h1>
 <div class="row">
 	<table class="table text-center">
 		<tr>
-			<th>Name</th>
-			<td>David</td>
+			<th>Gravatar</th>
+			<td><%= gravatar_image_tag(user.email, :alt => user.username, :class => 'rounded', :gravatar => { :default => 'https://assets.github.com/images/gravatars/gravatar-140.png' }) %>
+			</td>
 		</tr>
-		<th>Email</th>
-		<td>dvddcrz@gmail.com</td>
+		<tr>
+			<th>Name</th>
+			<td><%= user.username %></td>
+		</tr>
+		<tr>
+			<th>Email</th>
+			<td><%= user.email %></td>
+		</tr>
 	</table>
 </div>

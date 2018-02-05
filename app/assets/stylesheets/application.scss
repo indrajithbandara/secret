@@ -12,6 +12,14 @@ body {
     padding: 16px;
 }
 
+.card {
+	margin-top: 50px;
+}
+
+.messages {
+	margin-top: 25px;
+}
+
 // import scss file
 @import "bootswatch/sketchy/variables";
 @import "bootstrap";

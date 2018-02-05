@@ -36,6 +36,7 @@ gem 'bootstrap'
 gem 'bootswatch'
 gem 'jquery-rails'
 gem 'bcrypt', '3.1.11'
+gem 'gravatar_image_tag'
 
 
 group :development, :test do

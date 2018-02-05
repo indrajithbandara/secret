@@ -1,8 +1,11 @@
 Rails.application.routes.draw do
   
-  # rename get 'profiles/show'
+ 
+  get '/login', to: 'sessions#new'
+  delete '/logout', to: 'sessions#destroy'
+  post '/login', to: 'sessions#create'
 	get '/profile', to: 'profiles#show', as: 'show_profile'
-  #get 'pages/index'
+	get '/answer', to: 'pages#answer'
   root 'pages#index'
 
 end

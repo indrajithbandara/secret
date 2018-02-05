@@ -11,10 +11,4 @@ User.create(
 	username: 'admin',
 	email: 'admin@admin.com',
 	password_digest: '12356'
-	)
-
-User.create(
-	username: 'david',
-	email: 'david@david.com',
-	password_digest: '12356'
-	)
+)
