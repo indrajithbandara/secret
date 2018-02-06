@@ -11,8 +11,8 @@ before_action :lockout, only: [:create]
       flash[:success] = "Welcome to rails secret"
       redirect_to root_path
     else
-      flash.now[:danger] = "Your email or password doesn't match"
-      render 'new'
+      flash[:danger] = "Your email or password doesn't match"
+      redirect_to root_path
     end
   end
 
