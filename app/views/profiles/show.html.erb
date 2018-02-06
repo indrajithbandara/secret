@@ -1,5 +1,6 @@
 <% user = @current_user %>
 <h1>User Profile Page</h1>
+<%= render 'includes/messages' %>
 <div class="row">
 	<table class="table text-center">
 		<tr>
@@ -15,5 +16,15 @@
 			<th>Email</th>
 			<td><%= user.email %></td>
 		</tr>
+		<tr>
+			<th>Action</th>
+			<td>
+				<a href="<%= edit_profile_path(user) %>" class="badge badge-primary">
+				Edit profile
+			  </a>	
+			  <%= link_to "Delete profile", delete_profile_path(user), method: :delete, data: {confirm: "Are you sure?"}, class: "badge badge-danger" %>
+			</td>
+		</tr>
 	</table>
 </div>
+

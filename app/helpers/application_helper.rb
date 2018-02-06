@@ -11,7 +11,7 @@ module ApplicationHelper
   def authorize
   	if !logged_in?
   		flash[:danger] = "Please login !"
-  		redirect_to login_path
+  		redirect_to root_path
   	end
   end
   

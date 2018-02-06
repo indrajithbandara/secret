@@ -1,11 +1,13 @@
 class UsersController < ApplicationController
   
+  before_action :authorize, only: [:edit, :update, :destroy]
   before_action :lockout, only: [:new, :create]
 
   def create
   	 @user = User.new(user_params)
     if @user.save
-    	flash[:success] = "You can log in !"
+      session[:user_id] = @user.id
+    	flash[:success] = "You are logged in !"
       redirect_to root_path
     else
     	flash.now[:danger] = "Something went wrong try again"
@@ -22,7 +24,7 @@ class UsersController < ApplicationController
 
   def edit
    @user = User.find(params[:id])
-   if @user.id != current_user.id
+   if @user.id != current_user.id 
     flash[:danger] = "Nice try pirate !"
     redirect_to root_path
    end
@@ -32,7 +34,7 @@ class UsersController < ApplicationController
     @user = User.find(params[:id])
     if @user.id == current_user.id && @user.update(user_params)
       flash[:success] = "You edited your profile !"
-      redirect_to profile_path
+      redirect_to show_profile_path
     else
       flash.now[:danger] = "Something went wrong try again"
       render 'edit'
@@ -42,6 +44,7 @@ class UsersController < ApplicationController
   def destroy
     @user = User.find(params[:id])
     if @user.id == current_user.id
+      session[:user_id] = nil
       @user.destroy
       flash[:success] = "You deleted your account !"
       redirect_to root_path

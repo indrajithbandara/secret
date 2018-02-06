@@ -11,15 +11,18 @@
               <%= link_to "Home", root_path, 
               class: "nav-link" %>
             </li>
+             <li class="nav-item">
+              <%= link_to "Users", users_path, 
+                class: "nav-link" %>           
+            </li> 
             <% if !logged_in? %>
-            <li class="nav-item">
-            <%= link_to "Login", login_path, 
-              class: "nav-link" %>
-            </li>
             <li class="nav-item">
               <%= link_to "Register", register_path, 
                 class: "nav-link" %>           
             </li> 
+            <button type="button" class="btn btn-success" class="btn btn-primary" data-toggle=  "modal" data-target="#Modal">
+                          Login
+                        </button>
             <% else %>        
             <% user = current_user %>  
             <li class="nav-item dropdown">
@@ -40,5 +43,40 @@
         </div>
       </div>
     </nav>
+
+    <!-- Modal -->
+  <div class="modal fade" id="Modal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLabel">Contact </h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+        <%= render 'includes/messages' %>
+        <%= form_tag '/login' do  %>
+          <div class="form-group">
+            <label for="email">Email address</label>
+            <%= text_field_tag :email, nil, class: 'form-control' %>
+          </div>
+          <div class="form-group">
+            <label for="password">Password</label>
+            <%= password_field_tag :password, nil, class: 'form-control' %>
+          </div>
+          <%= submit_tag 'Log in', class: 'btn btn-primary btn-block' %>
+        
+        <% end %>
+        <div class="text-center">
+          <%= link_to "Register an Account", register_path,
+                class: "d-block small mt-3" %>   
+        </div>
+      </div>
+    </div>       
+     </div>
+      </div>
+    </div>
+  </div>
 
 

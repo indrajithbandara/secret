@@ -1,10 +1,8 @@
 class SessionsController < ApplicationController
 
 before_action :authorize, only: [:destroy]
-before_action :lockout, only: [:new, :create]
+before_action :lockout, only: [:create]
 
- def new
- end
 
   def create
     user = User.find_by(email: params[:email])
