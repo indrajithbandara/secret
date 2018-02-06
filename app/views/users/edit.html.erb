@@ -10,7 +10,12 @@
             <label for="email">Email address</label>
             <%= text_field_tag(:email, nil, value: @user.email, class: "form-control") %>
           </div>
+          <div class="form-group">
+            <label for="password">Password</label>
+            <%= password_field_tag(:password, nil, value: nil, class: "form-control") %>
+          </div>
           <%= submit_tag 'Edit profile', class: 'btn btn-primary btn-block' %>      
         <% end %>
       </div>
     </div>
+  

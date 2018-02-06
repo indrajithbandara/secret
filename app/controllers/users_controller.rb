@@ -32,7 +32,8 @@ class UsersController < ApplicationController
 
   def update
     @user = User.find(params[:id])
-    if @user.id == current_user.id && @user.update(user_params)
+    if @user.id == current_user.id && @user.password == current_user.password
+      @user.update(user_params)
       flash[:success] = "You edited your profile !"
       redirect_to show_profile_path
     else
